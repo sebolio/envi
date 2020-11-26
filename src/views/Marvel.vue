@@ -101,7 +101,7 @@ export default {
       privateKey: '16e2c4e2a6eb25cecc37a72966bbbe9c5123d842',
       usingSearch: false, //comportamiento especial al usar buscador
       cursor: 0, //siguiente número de personaje a descargar
-      limit: 8, //cantidad a descargar a la vez
+      limit: 20, //cantidad a descargar a la vez
       pulling:false, //evitar que se descarguen más si ya se están descargando
       scrollTrigger: 50 //pixeles antes del final de página para cargar más héroes
     }
