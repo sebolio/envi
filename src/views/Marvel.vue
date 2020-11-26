@@ -3,7 +3,7 @@
 
     
       <div class="container">
-        <vs-input v-model="searchName" @keydown.enter="search" label-placeholder="Buscar por nombre exacto" class="section inline-block" />
+        <vs-input v-model="searchName" @keydown.enter="search" placeholder="Buscar por nombre exacto" class="section inline-block" />
         <vs-button class="inline-block" @click="search">Buscar</vs-button>
         <vs-button gradient warn class="inline-block" @click="clearSearch" v-if="usingSearch">Regresar</vs-button>
 
@@ -11,26 +11,14 @@
           Sin resultados.<br><br>Recuerda que la API de Marvel sólo retorna nombres exactos.
         </div>
 
-        <div class="characters section" v-if="!noResults">          
-          <div v-for="character in characters" :key="character.id">
-            <vs-card type="3">
-              <template #title>
-                <h3>{{character.name}}</h3><br>
-              </template>
-              <template #img>
-                <img :src="character.thumbnail.path+'.'+character.thumbnail.extension" class="thumbnail">
-              </template>
-              <template #text class="center">
-                Modificado el {{parseDate(character.modified)}}<br><br>
-                <span v-html="parseDescription(character.description)"></span>
-              </template>
-            </vs-card>
+          <div class="characters section" v-if="!noResults">
+              <Character :data="character" v-for="character in characters" :key="character.id"/>
           </div>
-        </div>
 
         <div class="loader-container section" v-if="!usingSearch">
           <div class="loader"></div>
         </div>
+
       </div>
   </div>
 </template>
@@ -39,13 +27,11 @@
 .marvel {
   justify-content: center;
   display: flex;
+  margin-left: 50px;
 }
 .marvel .section {
   flex: 0 0 100%;
   align-items: center;
-}
-.marvel input { 
-  border:1px solid #4989ff !important;
 }
 .marvel .error {
   background: white;
@@ -61,7 +47,7 @@
   margin-bottom: 50px !important;
 }
 .marvel .vs-card__text { 
-  width: 600px !important;
+  /* width: 600px !important; */
   text-align: center;
 }
 .marvel .vs-card__img { 
@@ -76,16 +62,17 @@
   height:250px;
 }
 .marvel .vs-card {
-   width: 700px !important;
-  max-width: fit-content !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  /* width: 700px !important; */
+  /* max-width: fit-content !important; */
 }
-.inline-block { display: inline-block; }
 /* loader */
 .marvel .loader {
   display: inline-block;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid rgb(252, 146, 47);
   width: 50px;
   height: 50px;
   animation: spin .8s linear infinite;
@@ -98,12 +85,13 @@
 </style>
 
 <script>
-import md5 from 'md5'
-import axios from 'axios'
-import moment from 'moment'
+import md5 from 'md5';
+import axios from 'axios';
+import Character from '../components/Character';
 
 export default {
   name: 'Marvel',
+  components: {Character},
   data() {
     return {
       searchName: '',
@@ -121,8 +109,8 @@ export default {
   mounted() {
     this.getCharacters();
     window.onscroll = () => {
-      console.log((window.innerHeight + window.scrollY), document.body.offsetHeight);
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300) {
+      console.log((window.innerHeight + window.scrollY), document.body.scrollHeight);
+      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 300) {
         console.log('googo', );
         this.getCharacters();
       }
@@ -145,12 +133,6 @@ export default {
       this.noResults = false;
       this.getCharacters();
     },
-    parseDescription(description) {
-      return description?`<b>Descripción:</b> ${description}` : 'Sin descripción';
-    },
-    parseDate(date) {
-      return moment(date).locale('es').format('LL');
-    },
     getAuthString() {
       const ts = new Date().getTime();
       const apikey=this.publicKey;
@@ -166,9 +148,6 @@ export default {
       console.log('characters', characters.data.data.results);
       this.cursor += this.limit;
     }
-  },
-  components: {
-    
   }
 }
 </script>

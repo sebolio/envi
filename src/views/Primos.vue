@@ -1,12 +1,39 @@
 <template>
-  <div>
-        <vs-input type="number" v-model="primero" label-placeholder="Primer número"/>
-    <vs-input type="number" v-model="ultimo" label-placeholder="Último número"/>
-    <ul>
-      <li v-for="n in primos" :key="n">{{n}}</li>
-    </ul>
+  <div class="primos">
+      <vs-input type="number" v-model="primero" label-placeholder="Primer número" class="inline-block mr" />
+      <vs-input type="number" v-model="ultimo" label-placeholder="Último número"  class="inline-block mr2"/>
+      
+      <div class="numeros">
+        <div v-for="n in primos" :key="n" class="numero">{{n}}</div>
+      </div>
   </div>
 </template>
+
+<style>
+  .mr { margin-right: 20px;}
+  .mr2 { margin-right: 10px;}
+  .primos {
+    padding:20px;
+    padding-top: 32px;
+  }
+  .primos .numeros {
+    display:block;
+    width:450px;
+    margin-top: 20px;
+  }
+  .primos .numero {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: rgb(252, 146, 47);
+    padding: 10px 10px;
+    color:white;
+    font-weight: bold;
+    display: inline-block;
+    width:20px;
+    height:20px;
+  }
+</style>
 
 <script>
 export default {
