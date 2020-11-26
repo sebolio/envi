@@ -61,7 +61,7 @@ export default {
     esPrimo: n => { for(let i = 2; i < n; i++) if (n % i === 0) return false; return n>1 },
     //algoritmo simple que construye una lista de primos entre P y U
     calcPrimos() {
-      const p=this.primero, u=this.ultimo;
+      const p=+this.primero, u=+this.ultimo;
       return [...Array(u-p+1).keys()].map((n, i) => this.esPrimo(p+i) && p+i).filter(n=>!!n)
     }
   }
