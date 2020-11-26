@@ -62,7 +62,7 @@
     min-width: 150px;
   }
   #nav li { 
-    padding: 0px 15px;
+    padding: 0px 10px;
   }
   #nav ul { 
     list-style: none; 
@@ -74,7 +74,7 @@
   #nav a {
     font-weight: bold;
     color: #2c3e50;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     border-radius: 8px;
     text-decoration: none;

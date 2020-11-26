@@ -78,13 +78,13 @@ export default {
     line-height: 1.5;
     padding: 5px;
     display: inline-flex;
-    width: calc(50vw - 280px);
+    /* width: calc(50vw - 4100px); */
     margin-top: 50px;
   }
   .editor-container {
     padding: 5px;
     display: inline-flex;
-    width: calc(50vw - 280px);
+    width: calc(50vw - 350px);
   }
   .editor-container h3 {
     position: absolute;
