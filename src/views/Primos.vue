@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       primero: 0,
-      ultimo: 0
+      ultimo: 0,
+      primos: []
     }
   },
   watch: {
