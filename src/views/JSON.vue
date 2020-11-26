@@ -1,14 +1,21 @@
 <template>
   <div>
     <p>Desde aquí puedes ingresar valores y contenido para generar un JSON masticado especialmente para ti.</p>
-    <h3>Valores</h3>
-    <prism-editor class="editor" v-model="valores" :highlight="highlighter" line-numbers></prism-editor>
-    <h3>Contenido</h3>
-    <prism-editor class="editor" v-model="contenido" :highlight="highlighter" line-numbers></prism-editor>
-    <h3>Resultado</h3>
-    <prism-editor class="editor" v-model="resultado" :highlight="highlighter" line-numbers></prism-editor>
-  
-  es {{valores}}
+    <div class="editor-container">
+      <h3>Valores</h3>
+      <prism-editor class="editor" v-model="valores" :highlight="highlighter" line-numbers></prism-editor>
+    </div>
+
+    <div class="editor-container">
+      <h3>Contenido</h3>
+      <prism-editor class="editor separated" v-model="contenido" :highlight="highlighter" line-numbers></prism-editor>
+    </div>
+
+    <div class="editor-container">
+      <h3>Resultado</h3>
+      <prism-editor class="editor" v-model="resultado" :highlight="highlighter" line-numbers></prism-editor>
+    </div>
+
   </div>
 </template>
 
@@ -70,6 +77,21 @@ export default {
     font-size: 14px;
     line-height: 1.5;
     padding: 5px;
+    display: inline-flex;
+    width: calc(50vw - 280px);
+    margin-top: 50px;
+  }
+  .editor-container {
+    padding: 5px;
+    display: inline-flex;
+    width: calc(50vw - 280px);
+  }
+  .editor-container h3 {
+    position: absolute;
+  }
+  .separated {
+    margin-left:0px;
+    margin-right:10px;
   }
   .prism-editor__textarea:focus {
     outline: none;

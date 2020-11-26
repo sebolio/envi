@@ -19,7 +19,8 @@
   .primos .numeros {
     display:block;
     width:450px;
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 50px;
   }
   .primos .numero {
     margin-right: 10px;
