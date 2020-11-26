@@ -7,7 +7,7 @@ const routes = [
   { path: '/primos', component: () => import('../views/Primos') },
   { path: '/json', component: () => import('../views/JSON') },
   { path: '/marvel', component: () => import('../views/Marvel') },
-  // { path: '/', redirect: '/primos' },
+  { path: '/', redirect: '/primos' },
 ]
 
 const router = new VueRouter({
