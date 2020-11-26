@@ -42,31 +42,6 @@
 .marvel .characters {
   margin-top: 25px;
 }
-.marvel .vs-card { 
-  margin:auto !important; 
-  margin-bottom: 50px !important;
-}
-.marvel .vs-card__text { 
-  /* width: 600px !important; */
-  text-align: center;
-}
-.marvel .vs-card__img { 
-  width: 300px !important;
-  max-width: 500px !important;
-  align-self: center;
-}
-.marvel .vs-card__img img { 
-  /* margin-left: -185px;  */
-  width: 600px !important;
-  max-width: 600px !important;
-  height:250px;
-}
-.marvel .vs-card {
-    width: 100% !important;
-    max-width: 100% !important;
-  /* width: 700px !important; */
-  /* max-width: fit-content !important; */
-}
 /* loader */
 .marvel .loader {
   display: inline-block;
