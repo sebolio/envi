@@ -6,7 +6,10 @@
         <li><router-link to="/json">JSON</router-link></li>
         <li><router-link to="/marvel">Marvel</router-link></li>
       </ul>
-      <p class="footer">Hecho con ♥ por <a href="https://seb.cl" target="_blank">Sebastian Findling</a></p>
+      <p class="footer">
+        Hecho con ♥ por <a href="https://seb.cl" target="_blank">Sebastian Findling</a>
+        <a href="https://github.com/sebolio/envi"><img src="./assets/github.png"></a>
+      </p>
     </div>
     <div class="contenido">
       <router-view/>
@@ -22,7 +25,7 @@
   }
   .footer {
     position: absolute;
-    bottom:70px;
+    bottom:50px;
     text-align: right;
     width: 100%;
     right: 20px;
