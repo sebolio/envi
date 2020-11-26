@@ -138,9 +138,11 @@ export default {
       console.log('nores?', this.noResults);
     },
     clearSearch() {
+      this.searchName = '';
       this.usingSearch = false;
       this.cursor = 0;
       this.characters = [];
+      this.noResults = false;
       this.getCharacters();
     },
     parseDescription(description) {
